@@ -1,7 +1,7 @@
 <div class="container">
 
 <div class="ui card">
-  <h1>Komandos generatorius</h1>
+  <h1>Komandų generatorius</h1>
   <ul class="list">
     <li *ngFor="let narys of nariai">{{narys}}</li>
   </ul>
@@ -12,13 +12,21 @@
   </div>
 
   <div class="input-container">
-    <input type="text" name="" placeholder="komandu sk.">
-    <button>Sukurti</button>
+    <input type="text" name="" placeholder="komandu sk." (input)="onKomanduSkaiciusInput(komanduSkaiciusInput.value)" #komanduSkaiciusInput [value]="komanduSkaicius">
+    <button (click)="generuotiKomandas()">Sukurti</button>
   </div>
   <p *ngIf="klaidosPranesimas" class="error-msg">{{klaidosPranesimas}}</p>
 </div>
 
-
+<div *ngIf="komandos.length" class="teams-container">
+  <div *ngFor="let item of komandos; let i = index" class="team-container">
+    <h3 >Komanda {{i+1}}</h3>
+    <ul>
+      <li>{{item}}</li>
+    </ul>
+  </div>
+  
+</div>
 
 
 
