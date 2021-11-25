@@ -1,0 +1,32 @@
+<div class="container">
+
+<div class="ui card">
+  <h1>Komandos generatorius</h1>
+  <ul class="list">
+    <li *ngFor="let narys of nariai">{{narys}}</li>
+  </ul>
+
+  <div class="add-members-container">
+    <input type="text" name="" placeholder="Vardas" (input)="onInput(pridetiZmogu.value)" #pridetiZmogu [value]="naujasNarys">
+    <button (click)="pridetiNari(naujasNarys)">Prideti</button>
+  </div>
+
+  <div class="input-container">
+    <input type="text" name="" placeholder="komandu sk.">
+    <button>Sukurti</button>
+  </div>
+  <p *ngIf="klaidosPranesimas" class="error-msg">{{klaidosPranesimas}}</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
