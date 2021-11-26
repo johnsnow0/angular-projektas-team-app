@@ -47,19 +47,25 @@ export class AppComponent {
     }
     this.klaidosPranesimas = "";
 
-    const nariai = [...this.nariai]
-    for (let index = 0; index < this.komanduSkaicius; index++) {
-      const randomIndex = Math.floor(Math.random() * nariai.length)
-      const narys = nariai.splice(randomIndex, 1)[0];
-      if (!narys) break;
+    const visiNariai = [...this.nariai]
+    
+    while (visiNariai.length) {
 
-      if (this.komandos[index]) {
-        this.komandos[index].push(narys);
-      }
-      else {
-        this.komandos[index] = [narys];
+      for (let index = 0; index < this.komanduSkaicius; index++) {
+        const randomIndex = Math.floor(Math.random() * visiNariai.length)
+        const narys = visiNariai.splice(randomIndex, 1)[0];
+        if (!narys) break;
+  
+        if (this.komandos[index]) {
+          this.komandos[index].push(narys);
+        }
+        else {
+          this.komandos[index] = [narys];
+        }
       }
     }
+
+
     this.nariai = [];
     this.komanduSkaicius = "";
     
